@@ -17,7 +17,14 @@ jobs:
     #   - run: |
     #       echo ${{ env.NAME }}
     #       echo ${{ matrix.environments }}
-    test:
-      uses: edw1nzhao/gh-actions-test/.github/workflows/template.yml@main
-      with:
-        ENV: dev
+    # test:
+    #   uses: edw1nzhao/gh-actions-test/.github/workflows/template.yml@main
+    #   with:
+    #     ENV: dev
+    test-job:
+      name: Test
+      runs-on: ubuntu-latest
+      environment: dev
+      steps:
+      - run: |
+          echo ${{ env.NAME }}
