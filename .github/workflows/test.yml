@@ -6,25 +6,25 @@ on:
       - '*'
 
 jobs:
-    # test-job:
-    #   name: Test
-    #   runs-on: ubuntu-latest
-    #   strategy:
-    #     matrix:
-    #       environments: [dev, stage]
-    #   environment: ${{ matrix.environments }}
-    #   steps:
-    #   - run: |
-    #       echo ${{ env.NAME }}
-    #       echo ${{ matrix.environments }}
+    test-job:
+      name: Test
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          environments: [dev, stage]
+      environment: ${{ matrix.environments }}
+      steps:
+      - run: |
+          echo ${{ secrets.NAME }}
+          echo ${{ matrix.environments }}
     # test:
     #   uses: edw1nzhao/gh-actions-test/.github/workflows/template.yml@main
     #   with:
     #     ENV: dev
-    test-job:
-      name: Test
-      runs-on: ubuntu-latest
-      environment: dev
-      steps:
-      - run: |
-          echo ${{ env.NAME }}
+    # test-job:
+    #   name: Test
+    #   runs-on: ubuntu-latest
+    #   environment: dev
+    #   steps:
+    #   - run: |
+    #       echo ${{ env.NAME }}
