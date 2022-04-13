@@ -15,7 +15,10 @@ jobs:
       environment: ${{ matrix.environments }}
       steps:
       - run: |
-          echo ${{ secrets.NAME }}
+          if [[ "${{ secrets.NAME }}" == "dev" ]]
+          then
+            echo hi
+          fi
           echo ${{ matrix.environments }}
 
     # test:
