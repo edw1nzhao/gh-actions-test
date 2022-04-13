@@ -24,7 +24,7 @@ jobs:
     test:
       uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
       with:
-        ENV: dev
+        ENV: ${{ secrets.NAME }}
 
     # test-job:
     #   name: Test
