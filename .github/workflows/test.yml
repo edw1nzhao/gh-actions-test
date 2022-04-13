@@ -1,0 +1,18 @@
+name: Testing matrices and environment variables
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+    test-job:
+      name: Test
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          environments: [dev, stage]
+      environment: ${{ matrix.environments }}
+      steps:
+      - run: |
+          echo ${{ env.NAME }}
