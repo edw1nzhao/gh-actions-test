@@ -32,4 +32,4 @@ jobs:
     dev:
       uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
       with:
-        ENV: ${GITHUB_SHA::7}
+        ENV: ${{ github.event.pull_request.head.sha }}
