@@ -31,6 +31,6 @@ jobs:
   dev:
     uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
     with:
-      ENV: ${{ github.event.pull_request.head.sha }}
+      ENV: ${{ github.event.push.after }}
     secrets:
       NAME: ${{ secrets.NAME }}
