@@ -6,37 +6,27 @@ on:
       - '*'
 
 jobs:
-    # test-job:
-    #   name: Test
-    #   runs-on: ubuntu-latest
-    #   strategy:
-    #     matrix:
-    #       environments: [dev, stage]
-    #   environment: ${{ matrix.environments }}
-    #   steps:
-    #   - run: |
-    #       if [[ "${{ secrets.NAME }}" == "dev" ]]
-    #       then
-    #         echo hi
-    #       fi
-    #       echo ${{ matrix.environments }}
+    # dev:
+    #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+    #   with:
+    #     ENV: dev
+    #   secrets:
+    #     NAME: ${{ secrets.NAME }}
+    # stage:
+    #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+    #   with:
+    #     ENV: stage
+    #   secrets:
+    #     NAME: ${{ secrets.NAME }}
 
-    dev:
-      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-      with:
-        ENV: dev
-      secrets:
-        NAME: ${{ secrets.NAME }}
-    stage:
-      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-      with:
-        ENV: stage
-      secrets:
-        NAME: ${{ secrets.NAME }}
-    # test-job:
-    #   name: Test
-    #   runs-on: ubuntu-latest
-    #   environment: dev
-    #   steps:
-    #   - run: |
-    #       echo ${{ env.NAME }}
+
+    test-job:
+      name: Test
+      runs-on: ubuntu-latest
+      environment: dev
+      steps:
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: Check outputs
+        run: echo ${{ steps.vars.outputs.sha_short }}
