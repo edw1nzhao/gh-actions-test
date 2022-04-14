@@ -37,7 +37,7 @@ jobs:
       run: |
         export SHORT_SHA=${GITHUB_SHA::7}
         echo $SHORT_SHA
-        echo "::set-output name=sha::$(SHORT_SHA)"
+        echo "::set-output name=sha::$(echo $SHORT_SHA)"
   dev:
     uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
     with:
