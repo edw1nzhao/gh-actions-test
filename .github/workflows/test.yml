@@ -20,11 +20,16 @@ jobs:
     #     NAME: ${{ secrets.NAME }}
 
 
-    test-job:
-      name: Test
-      runs-on: ubuntu-latest
-      environment: dev
-      steps:
-      - name: Set outputs
-        id: vars
-        run: echo ${GITHUB_SHA::7}
+    # test-job:
+    #   name: Test
+    #   runs-on: ubuntu-latest
+    #   environment: dev
+    #   steps:
+    #   - name: Set outputs
+    #     id: vars
+    #     run: echo ${GITHUB_SHA::7}
+
+    dev:
+      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+      with:
+        ENV: ${GITHUB_SHA::7}
