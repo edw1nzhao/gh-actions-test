@@ -39,12 +39,12 @@ jobs:
         echo $SHORT_SHA
         echo "::set-output name=sha::$(echo $SHORT_SHA)"
 
-  # temp:
-  #   runs-on: ubuntu-latest
-  #   needs: get-sha
-  #   steps:
-  #   - run: |
-  #       echo ${{ needs.get-sha.outputs.sha }}
+  temp:
+    runs-on: ubuntu-latest
+    needs: get-sha
+    steps:
+    - run: |
+        echo ${{ needs.get-sha.outputs.sha }}
 
   dev:
     needs: get-sha
