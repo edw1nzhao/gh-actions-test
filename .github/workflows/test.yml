@@ -21,11 +21,18 @@ jobs:
     #       fi
     #       echo ${{ matrix.environments }}
 
-    test:
+    dev:
       uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
       with:
         ENV: dev
-
+      secrets:
+        NAME: ${{ secrets.NAME }}
+    stage:
+      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+      with:
+        ENV: stage
+      secrets:
+        NAME: ${{ secrets.NAME }}
     # test-job:
     #   name: Test
     #   runs-on: ubuntu-latest
