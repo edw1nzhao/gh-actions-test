@@ -28,11 +28,9 @@ jobs:
     #   - name: Set outputs
     #     id: vars
     #     run: echo ${GITHUB_SHA::7}
-
-
-    dev:
-      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-      with:
-        ENV: $GITHUB_SHA
-      secrets:
-        NAME: ${{ secrets.NAME }}
+  dev:
+    uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+    with:
+      ENV: $GITHUB_SHA
+    secrets:
+      NAME: ${{ secrets.NAME }}
