@@ -51,5 +51,6 @@ jobs:
     uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
     with:
       ENV: ${{ needs.get-sha.outputs.sha }}
+      SOMETHING: SOMETING
     secrets:
       NAME: ${{ secrets.NAME }}
