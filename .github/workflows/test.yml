@@ -6,18 +6,18 @@ on:
       - '*'
 
 jobs:
-    # dev:
-    #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-    #   with:
-    #     ENV: dev
-    #   secrets:
-    #     NAME: ${{ secrets.NAME }}
-    # stage:
-    #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-    #   with:
-    #     ENV: stage
-    #   secrets:
-    #     NAME: ${{ secrets.NAME }}
+    dev:
+      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+      with:
+        ENV: dev
+      secrets:
+        NAME: ${{ secrets.NAME }}
+    stage:
+      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+      with:
+        ENV: stage
+      secrets:
+        NAME: ${{ secrets.NAME }}
 
 
     # test-job:
@@ -29,9 +29,9 @@ jobs:
     #     id: vars
     #     run: echo ${GITHUB_SHA::7}
 
-    dev:
-      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-      with:
-        ENV: ${{ github.event.pull_request.head.sha }}
-      secrets:
-        NAME: ${{ secrets.NAME }}
+    # dev:
+    #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+    #   with:
+    #     ENV: ${{ github.event.pull_request.head.sha }}
+    #   secrets:
+    #     NAME: ${{ secrets.NAME }}
