@@ -29,19 +29,10 @@ jobs:
     #     id: vars
     #     run: echo ${GITHUB_SHA::7}
 
-    test-job:
-      name: Test
-      runs-on: ubuntu-latest
-      steps:
-      - name: Set outputs
-        id: vars
-        run: |
-          export SHA=${{ github.event.pull_request.head.sha }}
-          export SHORT_SHA=${SHA::7}
-          echo $SHORT_SHA
-    # dev:
-    #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-    #   with:
-    #     ENV: ${{ github.event.pull_request.head.sha }}
-    #   secrets:
-    #     NAME: ${{ secrets.NAME }}
+
+    dev:
+      uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+      with:
+        ENV: $GITHUB_SHA
+      secrets:
+        NAME: ${{ secrets.NAME }}
