@@ -50,6 +50,6 @@ jobs:
     needs: temp
     uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
     with:
-      ENV: dfghdfgh
+      ENV: ${{ needs.get-sha.outputs.sha }}
     secrets:
       NAME: ${{ secrets.NAME }}
