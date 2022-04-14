@@ -28,9 +28,18 @@ jobs:
     #   - name: Set outputs
     #     id: vars
     #     run: echo ${GITHUB_SHA::7}
+  get-sha:
+    runs-on: ubuntu-latest
+    outputs:
+      short_sha: ${{ steps.get_sha.outputs.short_sha}}
+    steps:
+    - id: get_sha
+      run: |
+        export SHORT_SHA=${GITHUB_SHA::7}
+        echo "::set-output name=short_sha::$SHORT_SHA"
   dev:
     uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
     with:
-      ENV: ${{ github.event.push.after }}
+      ENV: ${{ needs.get-sha.outputs.short_sha}}
     secrets:
       NAME: ${{ secrets.NAME }}
