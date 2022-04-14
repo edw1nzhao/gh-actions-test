@@ -44,12 +44,12 @@ jobs:
     needs: get-sha
     steps:
     - run: |
-        echo ${{ needs.get-sha.outputs.sha}}
+        echo ${{ needs.get-sha.outputs.sha }}
 
   dev:
     needs: temp
     uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
     with:
-      ENV: ${{ needs.get-sha.outputs.sha}}
+      ENV: dfghdfgh
     secrets:
       NAME: ${{ secrets.NAME }}
