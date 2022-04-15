@@ -41,7 +41,7 @@ jobs:
 
   temp:
     runs-on: ubuntu-latest
-    needs: get-sha
+    # needs: get-sha
     steps:
     - run: |
         apt-get install sudo
