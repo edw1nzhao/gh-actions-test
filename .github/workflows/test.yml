@@ -53,4 +53,4 @@ jobs:
       ENV: dev
       SOMETHING: SOMETING
     secrets:
-      NAME: ${{ secrets.NAME }}
+      NAME: ${{ secrets.EDWIN }}
