@@ -39,19 +39,18 @@ jobs:
   #       echo $SHORT_SHA
   #       echo "::set-output name=sha::$(echo $SHORT_SHA)"
 
-  temp:
-    runs-on: ubuntu-latest
-    # needs: get-sha
-    steps:
-    - run: |
-        apt-get install sudo
-        sudo echo $GITHUB_ENV
+  # temp:
+  #   runs-on: ubuntu-latest
+  #   # needs: get-sha
+  #   steps:
+  #   - run: |
+  #       apt-get install sudo
+  #       sudo echo $GITHUB_ENV
 
-  # dev:
-  #   needs: get-sha
-  #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
-  #   with:
-  #     ENV: ${{ needs.get-sha.outputs.sha }}
-  #     SOMETHING: SOMETING
-  #   secrets:
-  #     NAME: ${{ secrets.NAME }}
+  dev:
+    uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
+    with:
+      ENV: dev
+      SOMETHING: SOMETING
+    secrets:
+      NAME: ${{ secrets.NAME }}
