@@ -19,7 +19,7 @@ jobs:
 
           MATRIX_PARAMS_COMBINATIONS='
             {"dir": "."},
-            {"dir":"module/stuff"}
+            {"dir":"module/stuff"},
           '
 
           echo $MATRIX_PARAMS_COMBINATIONS
