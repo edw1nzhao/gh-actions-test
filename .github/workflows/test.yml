@@ -11,10 +11,15 @@ jobs:
       - name: Setup matrix combinations
         id: setup-matrix-combinations
         run: |
+          # MATRIX_PARAMS_COMBINATIONS='
+          #   {"foo": "foo-1", "bar": "bar-1"},
+          #   {"foo": "foo-1", "bar": "bar-2"},
+          #   {"foo": "foo-2", "bar": "bar-1"},
+          # '
+
           MATRIX_PARAMS_COMBINATIONS='
-              {"foo": "foo-1", "bar": "bar-1"},
-              {"foo": "foo-1", "bar": "bar-2"},
-              {"foo": "foo-2", "bar": "bar-1"},
+            {"dir": "."},
+            {"dir":"module/stuff"}
           '
           echo ::set-output name=matrix-combinations::{\"include\":[$MATRIX_PARAMS_COMBINATIONS]}
     outputs:
@@ -26,8 +31,7 @@ jobs:
       matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix-combinations) }}
     steps:
       - run: |
-          echo foo=${{ matrix.foo }}
-          echo bar=${{ matrix.bar }}
+          echo dir=${{ matrix.dir }}
     # dev:
     #   uses: edw1nzhao/zhao-workflows/.github/workflows/template.yml@main
     #   with:
